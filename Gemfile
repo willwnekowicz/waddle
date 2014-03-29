@@ -53,6 +53,8 @@ gem 'rolify'
 gem 'simple_form'
 
 group :development do
+  gem 'pry-remote'
+
   gem 'pry-rails'           # Causes rails console to open pry
                             # https://github.com/rweng/pry-rails
   gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints
