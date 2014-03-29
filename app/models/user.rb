@@ -21,7 +21,7 @@ def self.new_with_session(params, session)
   else
     super
   end    
-endgit
+end
 
 	private
 
