@@ -9,4 +9,4 @@ mv index.html index.html.erb
 rmdir css js images fonts
 
 echo "Remember to edit the images in the HTML files!"
-
+echo "and change the CRLFs to LFs everywhere"
