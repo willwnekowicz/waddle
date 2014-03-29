@@ -230,7 +230,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-  config.omniauth :twitter, "odO9NgJWJhNu5JwJRhznn89ru", "KVYj5u03H35hW2ESdPLAkssAkOLtNpGegy6HC2APS525tkQepT"
+  config.omniauth :twitter, "odO9NgJWJhNu5JwJRhznn89ru", "KVYj5u03H35hW2ESdPLAkssAkOLtNpGegy6HC2APS525tkQepT", :scope => 'offline_access, email'
   
   config.omniauth :foursquare, "LEMLFY4BAPADIYXBQXSBD4J2XYI32HCKF4LH2QBBXTSA0H3M", "DWPFEMSKCTQVVJYRAHPS0ESNXKPA3SFLTCQ10F4FXA4VGAXW"
 
