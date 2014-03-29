@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   #  :validatable
   
   has_many :authorizations
+  has_many :statuses
+  has_many :locations, through: :statuses
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable
