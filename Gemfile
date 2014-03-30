@@ -27,6 +27,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'rest-client', '~> 1.6.7'
 
   # bundle exec rake doc:rails generates the API under doc/api.
 
@@ -47,16 +48,28 @@ gem 'cancan'
 gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-foursquare'
 gem 'pg'
 gem 'rolify'
 gem 'simple_form'
 
 group :development do
+  gem 'pry-remote'
+
+  gem 'pry-rails'           # Causes rails console to open pry
+                            # https://github.com/rweng/pry-rails
+  gem 'pry-debugger'        # Adds step, next, finish, and continue commands and breakpoints
+                            # https://github.com/nixme/pry-debugger
+  gem 'pry-stack_explorer'  # Navigate the call-stack
+                            # https://github.com/pry/pry-stack_explorer
+  gem 'annotate'            # Annotate all your models, tests, fixtures, and factories
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'erd'
+  gem 'seed_dump'
 end
 
 group :development, :test do
@@ -75,4 +88,5 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
 end
+
 
