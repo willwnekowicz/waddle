@@ -27,6 +27,18 @@ h1, h2, h3 {
   right:0px;
 }
 
+.foursquare{
+  background: url('../assets/btn_foursquare.png');
+  width: 418px;
+  height: 113px;
+  border: 10px solid rgba(71,71,71,0.81);
+  background-repeat: no-repeat;
+}
+
+.carousel-caption{
+  top:140px;
+}
+
 /* ========================================================
    Mini Profile
    ===================================================== */
