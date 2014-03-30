@@ -3,6 +3,7 @@
                .setView([0, 0], 0);
    */
 
+/*
     var geoJsonOld = {
         type: 'FeatureCollection',
         features: [{
@@ -29,6 +30,7 @@
         }]
     };
    
+*/
     /*
     map.featureLayer.setGeoJSON(geoJson);
     */
@@ -55,7 +57,7 @@
 function  mapData() {
 
     var map = L.mapbox.map('map', 'waddleuser.hlae5cf4')
-               .setView([0, 0], 0);
+               .setView([40, -74], 2);
 
     var url = 'users/current';
     $.getJSON( 'users/current',
@@ -66,6 +68,5 @@ function  mapData() {
                    map.featureLayer.setGeoJSON(geoJson);
                }
     );
-    alert("returning");
 }
  
