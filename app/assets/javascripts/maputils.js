@@ -9,8 +9,6 @@
             type: 'Feature',
             properties: {
                 title: 'Washington, D.C.',
-                'marker-color': '#f00',
-                'marker-size': 'large',
                 url: 'http://en.wikipedia.org/wiki/Washington,_D.C.'
             },
             geometry: {
@@ -22,8 +20,6 @@
             type: 'Feature',
             properties: {
                 title: 'Baltimore, MD',
-                'marker-color': '#f00',
-                'marker-size': 'large',
                 url: 'http://en.wikipedia.org/wiki/Baltimore'
             },
             geometry: {
@@ -33,6 +29,7 @@
         }]
     };
    
+    map.featureLayer.setGeoJSON(geoJson);
     /* 
     var newCoords = geoJson.features[0].geometry.coordinates;
     var newMarker = geoJson.features[0].properties.title;
@@ -59,18 +56,18 @@ var mapData = function() {
                .setView([0, 0], 0);
 
     // id comes from where?
-    var url = 'user/' + id + '.json';
+    var url = 'user/current';
     var geoJson = Object;
     geoJson.type = 'FeatureCollection';
     
-    $.getJSON( dataType: 'json',
+    $.getJSON({ dataType: 'json',
                url     : url,
                success : function (data, textStatus, jqXHR) {
                    geoJson.features = data;
                    map.featureLayer.setGeoJSON(geoJson);
-                   
                }
+    });
 
  
-   }
+}
  
