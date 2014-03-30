@@ -1,4 +1,3 @@
-require 'pry-remote'
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def all
     user = User.from_omniauth(env['omniauth.auth'], current_user)
