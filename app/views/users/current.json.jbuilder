@@ -8,7 +8,7 @@ json.features do
     end
     json.geometry do
       json.type 'Point'
-      json.coordinates [location.latitude, location.longitude]
+      json.coordinates [location.longitude, location.latitude]
     end
   
   end

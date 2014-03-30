@@ -2,17 +2,39 @@ class Status < ActiveRecord::Base
   belongs_to :location
   belongs_to :user
 
-def get_from_foursquare
-	u = User.find(1)
-	response = RestClient.get("https://api.foursquare.com/v2/users/self/checkins?oauth_token=#{u.Authorization.where(provider:"foursquare").take.token}&v=20140329");
-	checkin_item = parsed_foursquare["response"]["checkins"]["items"][0]
-	providers_guid = checkin_item["id"]
-	type = checkin_item["type"]
-	posted_at = checkin_item["createdAt"]
-	timezone_offset = checkin_item["timeZoneOffset"]
-	location_id = checkin_item["venue"]["id"]
-	location.name = checkin_item["venue"]["name"]
-	location.latitude = checkin_item["venue"]["location"]["lat"]
-	location.longitude = checkin_item["venue"]["location"]["lng"]
-	user_id = u.id
+  def self.get_from_foursquare
+  	u = User.find(1)
+  	response = RestClient.get("https://api.foursquare.com/v2/users/self/checkins?oauth_token=#{u.authorizations.where(provider:"foursquare").take.token}&v=20140329");
+  	
+  	parsed_foursquare = JSON.parse(response)
+  	
+  	parsed_foursquare["response"]["checkins"]["items"].each do |checkin_item|  	
+
+    	s = self.new
+  
+    	
+    	s.provider = "foursquare"
+    	s.providers_guid = checkin_item["id"]
+    	s.type = checkin_item["type"]
+    	s.posted_at = checkin_item["createdAt"]
+    	s.timezone_offset = checkin_item["timeZoneOffset"]
+  
+  
+    	s.user_id = u.id
+    	
+    	l = Location.new
+    	l.name = checkin_item["venue"]["name"]
+    	l.latitude = checkin_item["venue"]["location"]["lat"]
+    	l.longitude = checkin_item["venue"]["location"]["lng"]
+      
+      l.save!
+  
+    	s.location_id = l.id
+    	
+    	s.save
+  	
+  	end
+
+  end
+
 end

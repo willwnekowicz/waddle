@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329221406) do
+ActiveRecord::Schema.define(version: 20140330014738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20140329221406) do
     t.string   "provider"
     t.string   "providers_guid"
     t.string   "type"
-    t.date     "posted_at"
     t.integer  "timezone_offset"
     t.integer  "location_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "posted_at"
   end
 
   add_index "statuses", ["location_id"], name: "index_statuses_on_location_id", using: :btree
