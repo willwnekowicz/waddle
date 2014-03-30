@@ -55,17 +55,20 @@
     var dummy = 1;
 
 function  mapData() {
-
-    var map = L.mapbox.map('map', 'waddleuser.hlae5cf4')
+    // original map: waddleuser.hlae5cf4
+    // new map: waddleuser.hlh59e0j
+    var map = L.mapbox.map('map', 'waddleuser.hlh59e0j')
                .setView([40, -74], 2);
+    var markerLayer = L.mapbox.markerLayer().addTo(map);
 
-    var url = 'users/current';
     $.getJSON( 'users/current',
                function (data, textStatus, jqXHR) {
                    var geoJson = {};
                    geoJson.features = data.features;
                    geoJson.type = 'FeatureCollection';
-                   map.featureLayer.setGeoJSON(geoJson);
+                   markerLayer.setFilter(function() {return false; });
+                   markerLayer.setGeoJSON(geoJson);
+                   markerLayer.setFilter(function() {return true; });
                }
     );
 }
