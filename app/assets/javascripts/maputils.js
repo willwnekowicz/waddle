@@ -1,9 +1,9 @@
-    
+   /* 
     var map = L.mapbox.map('map', 'waddleuser.hlae5cf4')
                .setView([0, 0], 0);
-   
+   */
 
-    var geoJson = {
+    var geoJsonOld = {
         type: 'FeatureCollection',
         features: [{
             type: 'Feature',
@@ -29,7 +29,9 @@
         }]
     };
    
+    /*
     map.featureLayer.setGeoJSON(geoJson);
+    */
     /* 
     var newCoords = geoJson.features[0].geometry.coordinates;
     var newMarker = geoJson.features[0].properties.title;
@@ -50,24 +52,20 @@
    */
     var dummy = 1;
 
-var mapData = function() {
+function  mapData() {
 
     var map = L.mapbox.map('map', 'waddleuser.hlae5cf4')
                .setView([0, 0], 0);
 
-    // id comes from where?
-    var url = 'user/current';
-    var geoJson = Object;
-    geoJson.type = 'FeatureCollection';
-    
-    $.getJSON({ dataType: 'json',
-               url     : url,
-               success : function (data, textStatus, jqXHR) {
-                   geoJson.features = data;
+    var url = 'users/current';
+    $.getJSON( 'users/current',
+               function (data, textStatus, jqXHR) {
+                   var geoJson = {};
+                   geoJson.features = data.features;
+                   geoJson.type = 'FeatureCollection';
                    map.featureLayer.setGeoJSON(geoJson);
                }
-    });
-
- 
+    );
+    alert("returning");
 }
  
