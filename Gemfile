@@ -69,6 +69,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'erd'
+  gem 'seed_dump'
 end
 
 group :development, :test do
