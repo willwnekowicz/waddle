@@ -92,5 +92,8 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <%= javascript_include_tag "bootstrap.min.js" %>
     <%= javascript_include_tag "maputils.js" %>
+    
+    <%= "Users signed up: #{User.all.count}" %>
+    
   </body>
 </html>
