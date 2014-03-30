@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
       end
       authorization.user = user
       authorization.save
+      
     end
     authorization.user
   end
